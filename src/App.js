@@ -23,6 +23,8 @@ const OperatorButton = ({ operator, count, setCount }) => {
           -
         </button>
       );
+    default:
+      return;
   }
 };
 
