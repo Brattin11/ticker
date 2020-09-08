@@ -6,7 +6,7 @@ import * as utils from "./commonUtils.js";
 const Clock = () => {
   const [time, setTime] = useState(new Date());
 
-  const updateInterval = setInterval(() => setTime(new Date()), 500);
+  const updateInterval = setInterval(() => setTime(new Date()), 100);
 
   const getMonthFromNumber = (num) => {
     switch (num) {
