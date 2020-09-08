@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Counter from "./Counter.js";
+import * as utils from "./commonUtils.js";
 
 const Clock = () => {
   const [time, setTime] = useState(new Date());
@@ -37,8 +38,8 @@ const Clock = () => {
   };
 
   return (
-    <div>{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${getMonthFromNumber(
-      time.getMonth() + 1
+    <div>{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
+      time.getMonth()
     )} ${time.getDate()} ${time.getFullYear()}`}</div>
   );
 };
