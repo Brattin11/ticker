@@ -58,6 +58,7 @@ function App() {
               textAlign: "center",
               maxWidth: "50%",
               alignSelf: "center",
+              fontFamily: "Ariel, sans-serif",
             }}
           >
             {count}
