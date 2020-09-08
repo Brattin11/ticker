@@ -1,31 +1,19 @@
 import React, { useState } from "react";
 import "./App.css";
+import Minus from "./minus.js";
+import Plus from "./plus.js";
 
-const OperatorButton = ({ operator, count, setCount }) => {
-  switch (operator) {
-    case "add":
-      return (
-        <button
-          class="button"
-          style={{ height: "2rem", width: "2rem" }}
-          onClick={() => setCount(count + 1)}
-        >
-          +
-        </button>
-      );
-    case "subtract":
-      return (
-        <button
-          class="button"
-          style={{ height: "2rem", width: "2rem" }}
-          onClick={() => setCount(count - 1)}
-        >
-          -
-        </button>
-      );
-    default:
-      return;
-  }
+const Button = (props) => {
+  return (
+    <button
+      class="button"
+      style={{
+        flex: "1 0 25%",
+        maxWidth: "25%",
+      }}
+      {...props}
+    />
+  );
 };
 
 function App() {
@@ -38,11 +26,52 @@ function App() {
           margin: "0 auto",
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
         }}
       >
-        <OperatorButton operator="add" count={count} setCount={setCount} />
-        <div style={{ margin: "5px", color: "white" }}>{count}</div>
-        <OperatorButton operator="subtract" count={count} setCount={setCount} />
+        <div
+          style={{
+            width: "100vw",
+            paddingBottom: "20%",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "stretch",
+            minHeight: "100vh",
+            flex: 1,
+          }}
+        >
+          <Button onClick={() => setCount(count - 1)}>
+            <Minus
+              style={{
+                width: "100%",
+                fill: "white",
+                height: "100%",
+              }}
+            />
+          </Button>
+          <div
+            style={{
+              color: "white",
+              fontSize: "25vw",
+              flex: "2 0 50%",
+              textAlign: "center",
+              maxWidth: "50%",
+              alignSelf: "center",
+            }}
+          >
+            {count}
+          </div>
+          <Button onClick={() => setCount(count + 1)}>
+            <Plus
+              style={{
+                width: "100%",
+                fill: "white",
+                height: "100%",
+              }}
+            />
+          </Button>
+        </div>
       </div>
     </>
   );
