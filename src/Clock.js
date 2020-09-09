@@ -1,18 +1,34 @@
 import React, { useState } from "react";
 import * as utils from "./commonUtils.js";
 
-const Clock = () => {
+const Clock = ({ style = {}, ...rest }) => {
   const [time, setTime] = useState(new Date());
 
   const updateInterval = setInterval(() => setTime(new Date()), 10);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "2em" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexFlow: "column",
+        ...style,
+      }}
+      {...rest}
+    >
       <div
-        style={{ fontSize: "15vw" }}
-      >{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
-        time.getMonth()
-      )} ${time.getDate()} ${time.getFullYear()}`}</div>
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "0.1em",
+        }}
+      >
+        <div
+          style={{}}
+        >{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
+          time.getMonth()
+        )} ${time.getDate()} ${time.getFullYear()}`}</div>
+      </div>
     </div>
   );
 };
