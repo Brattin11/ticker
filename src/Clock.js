@@ -7,9 +7,13 @@ const Clock = () => {
   const updateInterval = setInterval(() => setTime(new Date()), 10);
 
   return (
-    <div>{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
-      time.getMonth()
-    )} ${time.getDate()} ${time.getFullYear()}`}</div>
+    <div style={{ display: "flex", justifyContent: "center", margin: "2em" }}>
+      <div
+        style={{ fontSize: "15vw" }}
+      >{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
+        time.getMonth()
+      )} ${time.getDate()} ${time.getFullYear()}`}</div>
+    </div>
   );
 };
 
