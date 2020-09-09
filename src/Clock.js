@@ -25,7 +25,9 @@ const Clock = ({ style = {}, ...rest }) => {
       >
         <div style={{}}>{`${
           time.getHours() % 12
-        }:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
+        }:${time.getMinutes()}:${time.getSeconds()} ${
+          time.getHours() > 12 ? "PM" : "AM"
+        } ${utils.getMonthFromNumber(
           time.getMonth()
         )} ${time.getDate()} ${time.getFullYear()}`}</div>
       </div>
