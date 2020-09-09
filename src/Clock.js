@@ -23,9 +23,9 @@ const Clock = ({ style = {}, ...rest }) => {
           margin: "0.1em",
         }}
       >
-        <div
-          style={{}}
-        >{`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
+        <div style={{}}>{`${
+          time.getHours() % 12
+        }:${time.getMinutes()}:${time.getSeconds()} ${utils.getMonthFromNumber(
           time.getMonth()
         )} ${time.getDate()} ${time.getFullYear()}`}</div>
       </div>
