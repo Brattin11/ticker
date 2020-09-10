@@ -10,7 +10,7 @@ const Clock = ({ style = {}, ...rest }) => {
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
         flexFlow: "column",
         ...style,
       }}
@@ -19,17 +19,21 @@ const Clock = ({ style = {}, ...rest }) => {
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          flexFlow: "column",
           margin: "0.1em",
+          justifyContent: "center",
         }}
       >
-        <div style={{}}>{`${
-          time.getHours() % 12 || 12
-        }:${time.getMinutes()}:${time.getSeconds()} ${
-          time.getHours() > 12 ? "PM" : "AM"
-        } ${utils.getMonthFromNumber(
+        <div>
+          <span>{`${
+            time.getHours() % 12 || 12
+          }:${time.getMinutes()}:${time.getSeconds()}`}</span>{" "}
+          <span> {`${time.getHours() >= 12 ? "PM" : "AM"}`}</span>
+        </div>
+        <div>{`${utils.getMonthFromNumber(
           time.getMonth()
-        )} ${time.getDate()} ${time.getFullYear()}`}</div>
+        )} ${time.getDate()}`}</div>
+        <div>{`${time.getFullYear()}`}</div>
       </div>
     </div>
   );

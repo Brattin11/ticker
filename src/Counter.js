@@ -33,14 +33,14 @@ const Counter = () => {
             <Minus
               style={{
                 width: "100%",
-                fill: "white",
+                fill: "black",
                 height: "100%",
               }}
             />
           </Button>
           <div
             style={{
-              color: "white",
+              color: "black",
               fontSize: "25vw",
               flex: "2 0 50%",
               textAlign: "center",
@@ -55,7 +55,7 @@ const Counter = () => {
             <Plus
               style={{
                 width: "100%",
-                fill: "white",
+                fill: "black",
                 height: "100%",
               }}
             />
