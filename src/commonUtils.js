@@ -33,9 +33,5 @@ export function getMonthFromNumber(num) {
 export function padString(input, finalStringLength, padValue) {
   input = input.toString();
 
-  for (let i = input.length; i < finalStringLength; ) {
-    input = padValue + input;
-  }
-
-  return input;
+  return input.padStart(finalStringLength, padValue);
 }

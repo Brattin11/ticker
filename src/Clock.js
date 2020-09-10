@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as utils from "./commonUtils.js";
 
 const Clock = ({ style = {}, ...rest }) => {
   const [time, setTime] = useState(new Date());
 
-  const updateInterval = setInterval(() => setTime(new Date()), 10);
+  useEffect(() => {
+    const updateInterval = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(updateInterval);
+      console.log("running");
+    };
+  }, []);
 
   return (
     <div
@@ -25,9 +31,15 @@ const Clock = ({ style = {}, ...rest }) => {
         }}
       >
         <div>
-          <span>{`${
-            time.getHours() % 12 || 12
-          }:${time.getMinutes()}:${time.getSeconds()}`}</span>{" "}
+          <span>{`${utils.padString(
+            time.getHours() % 12 || 12,
+            2,
+            "0"
+          )}:${utils.padString(time.getMinutes(), 2, "0")}:${utils.padString(
+            time.getSeconds(),
+            2,
+            "0"
+          )}`}</span>{" "}
           <span> {`${time.getHours() >= 12 ? "PM" : "AM"}`}</span>
         </div>
         <div>{`${utils.getMonthFromNumber(
