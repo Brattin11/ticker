@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Counter />
-      <Clock style={{ fontSize: "15vw" }} />
+      <Clock style={{ fontSize: "15vw", color: "whitesmoke" }} />
     </>
   );
 }
