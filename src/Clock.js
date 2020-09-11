@@ -30,7 +30,12 @@ const Clock = ({ style = {}, ...rest }) => {
           justifyContent: "center",
         }}
       >
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <span>{`${utils.padString(
             time.getHours() % 12 || 12,
             2,
@@ -40,7 +45,13 @@ const Clock = ({ style = {}, ...rest }) => {
             2,
             "0"
           )}`}</span>{" "}
-          <span> {`${time.getHours() >= 12 ? "PM" : "AM"}`}</span>
+          <span
+            style={{
+              paddingRight: "18rem",
+            }}
+          >
+            {`${time.getHours() >= 12 ? "PM" : "AM"}`}
+          </span>
         </div>
         <div>{`${utils.getMonthFromNumber(
           time.getMonth()
