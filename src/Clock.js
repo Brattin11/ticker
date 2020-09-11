@@ -8,7 +8,6 @@ const Clock = ({ style = {}, ...rest }) => {
     const updateInterval = setInterval(() => setTime(new Date()), 1000);
     return () => {
       clearInterval(updateInterval);
-      console.log("running");
     };
   }, []);
 
