@@ -3,7 +3,6 @@ import "./App.css";
 import Counter from "./Counter.js";
 import * as utils from "./commonUtils.js";
 import Clock from "./Clock.js";
-
 import GifReel from "./GifReel.js";
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
     <>
       <Counter />
       <Clock style={{ fontSize: "15vw", color: "whitesmoke" }} />
-      {/* <GifReel /> */}
+      <GifReel />
     </>
   );
 }

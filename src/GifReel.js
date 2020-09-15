@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const GifReel = () => {
   const gifs = [
@@ -12,16 +12,18 @@ const GifReel = () => {
 
   let [currentGifPosition, setGifPosition] = useState(0);
 
-  const getNextGifPosition = () =>
-    console.log("in getNextGifPosition") ||
-    (currentGifPosition + 1) % gifs.length;
+  const getNextGifPosition = (itt) => (currentGifPosition + itt) % gifs.length;
 
-  setInterval(() => {
-    setGifPosition(getNextGifPosition());
-    console.log("running");
-  }, 5000);
+  let gifPositionTimeout;
 
-  console.log("GifReel called");
+  useEffect(() => {
+    gifPositionTimeout = setTimeout(() => {
+      setGifPosition(getNextGifPosition(1));
+    }, 1000);
+    return () => {
+      clearTimeout(gifPositionTimeout);
+    };
+  }, [currentGifPosition]);
 
   return (
     <>
@@ -41,14 +43,29 @@ const GifReel = () => {
             width: "100vw",
           }}
         >
-          <div>
-            <img
-              style={{
-                borderRadius: "10px",
-              }}
-              src={gifs[currentGifPosition]}
-            ></img>
-          </div>
+          <button
+            onClick={() => {
+              setGifPosition(getNextGifPosition(-1));
+              clearTimeout(gifPositionTimeout);
+            }}
+          >
+            &larr;
+          </button>
+          <img
+            style={{
+              borderRadius: "10px",
+            }}
+            src={gifs[currentGifPosition]}
+          ></img>
+
+          <button
+            onClick={() => {
+              setGifPosition(getNextGifPosition(1));
+              clearTimeout(gifPositionTimeout);
+            }}
+          >
+            &rarr;
+          </button>
         </div>
       </div>
     </>
