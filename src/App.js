@@ -4,13 +4,17 @@ import Counter from "./Counter.js";
 import * as utils from "./commonUtils.js";
 import Clock from "./Clock.js";
 import GifReel from "./GifReel.js";
+import { ToDos } from "./Todo";
+import StopWatch from "./StopWatch";
 
 function App() {
   return (
     <>
       <Counter />
       <Clock style={{ fontSize: "15vw", color: "whitesmoke" }} />
-      <GifReel />
+      {/* <GifReel /> */}
+      {/* <ToDos /> */}
+      <StopWatch />
     </>
   );
 }

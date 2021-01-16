@@ -5,7 +5,7 @@ const Button = (props) => {
 
   return (
     <button
-      class="button"
+      className="button"
       style={{
         outline: 0,
         flex: "1 0 25%",
