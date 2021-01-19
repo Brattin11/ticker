@@ -13,7 +13,7 @@ function App() {
       <Counter />
       <Clock style={{ fontSize: "15vw", color: "whitesmoke" }} />
       {/* <GifReel /> */}
-      {/* <ToDos /> */}
+      <ToDos />
       <StopWatch />
     </>
   );

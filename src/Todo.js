@@ -6,12 +6,29 @@ const omit = (arr, index) => {
   return dupArr;
 };
 
+const ToDo = ({ message }) => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <div>
+      <input
+        type="checkbox"
+        onClick={() => {
+          setChecked(!checked);
+        }}
+      ></input>
+      <span style={{ textDecoration: checked ? "line-through" : "" }}>
+        {message}
+      </span>
+    </div>
+  );
+};
+
 export const ToDos = () => {
   const [todos, setTodos] = useState([
-    { message: "drive to mall", checked: true },
-    { message: "get shirt", checked: false },
-    { message: "get pans", checked: false },
-    { message: "get tie", checked: false },
+    "drive to mall",
+    "get shirt",
+    "get pans",
+    "get tie",
   ]);
 
   const [newTodo, setNewTodo] = useState("");
@@ -27,7 +44,7 @@ export const ToDos = () => {
         />
         <button
           onClick={() => {
-            setTodos([...todos, { message: newTodo, checked: false }]);
+            setTodos([...todos, newTodo]);
             setNewTodo("");
           }}
         >
@@ -35,22 +52,10 @@ export const ToDos = () => {
         </button>
       </div>
       {todos.map((todo, index) => {
+        console.log(todo);
         return (
-          <div>
-            <input
-              type="checkbox"
-              onClick={() => {
-                setTodos([
-                  ...todos,
-                  { message: todos[index].message, checked: true },
-                ]);
-              }}
-            ></input>
-            <span
-              style={{ textDecoration: todo.checked ? "line-through" : "" }}
-            >
-              {todo.message}
-            </span>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <ToDo message={todo} />
             <button
               onClick={() => {
                 setTodos(omit(todos, index));
